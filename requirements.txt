@@ -3,3 +3,9 @@ uvicorn
 pypdf
 google-generativeai
 python-multipart
+<<<<<<< HEAD
+=======
+python-dotenv
+httpx
+pytest
+>>>>>>> 45567c0d393cf18bd88b8eb3a2009dedf2c918f7

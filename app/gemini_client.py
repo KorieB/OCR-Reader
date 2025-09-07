@@ -4,12 +4,20 @@ from __future__ import annotations
 import os
 from typing import Optional
 
+<<<<<<< HEAD
+=======
+from dotenv import load_dotenv
+>>>>>>> 45567c0d393cf18bd88b8eb3a2009dedf2c918f7
 import google.generativeai as genai
 
 
 class GeminiClient:
     def __init__(self, model: str = "gemini-2.5-flash", api_key: Optional[str] = None) -> None:
         self.model_name = model
+<<<<<<< HEAD
+=======
+        load_dotenv()
+>>>>>>> 45567c0d393cf18bd88b8eb3a2009dedf2c918f7
         self.api_key = api_key or os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
         self._model: Optional[genai.GenerativeModel] = None
 
