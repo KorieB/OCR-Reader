@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: codex/build-smart-document-qa-api
+  pull_request:
+    branches: codex/build-smart-document-qa-api
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: pytest -q
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t smart-doc-qa .
+
