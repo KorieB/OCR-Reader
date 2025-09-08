@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import os
-from typing import Optional
+from typing import Optional, List, Dict, Any
 
 from dotenv import load_dotenv
 import google.generativeai as genai
@@ -26,5 +26,26 @@ class GeminiClient:
         """Ask a question about a piece of text."""
         self._ensure_model()
         prompt = f"Document:\n{text}\n\nQuestion: {question}"
+        response = self._model.generate_content(prompt)
+        return response.text.strip()
+    
+    def ask_with_image(self, question: str, image_data: Dict[str, Any]) -> str:
+        """Ask a question about an image."""
+        self._ensure_model()
+        response = self._model.generate_content([question, image_data])
+        return response.text.strip()
+    
+    def ask_multiple_documents(self, documents: Dict[str, str], question: str) -> str:
+        """Ask a question about multiple documents for cross-checking."""
+        self._ensure_model()
+        
+        # Prepare the prompt with multiple documents
+        prompt = f"I have {len(documents)} documents to analyze:\n\n"
+        
+        for i, (doc_id, text) in enumerate(documents.items(), 1):
+            prompt += f"Document {i} (ID: {doc_id}):\n{text}\n\n"
+        
+        prompt += f"Question: {question}\n\nPlease analyze all documents and provide a comprehensive answer, noting any similarities, differences, or contradictions between them."
+        
         response = self._model.generate_content(prompt)
         return response.text.strip()
