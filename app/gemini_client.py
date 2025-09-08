@@ -1,18 +1,28 @@
 """Wrapper around the Gemini API."""
 from __future__ import annotations
+
+
 import os
 from typing import Optional
+
+
 from dotenv import load_dotenv
 import google.generativeai as genai
 
 
 class GeminiClient:
+
+    def __init__(self, model: str = "gemini-2.5-flash", api_key: Optional[str] = None) -> None:
+        self.model_name = model
+        load_dotenv()
+
     def __init__(self, model: str = "gemini-live-2.5-flash-preview", api_key: Optional[str] = None) -> None:
         self.model_name = model
 
         load_dotenv()
         
 
+       main
         self.api_key = api_key or os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
         self._model: Optional[genai.GenerativeModel] = None
 

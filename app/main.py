@@ -1,12 +1,37 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException, Depends
+
+from fastapi.responses import RedirectResponse
+
 from pydantic import BaseModel
 import io
 from pypdf import PdfReader
 
+
+# Support running both as a package (e.g. ``uvicorn app.main:app``) and as a
+# standalone script (``python app/main.py``).  Relative imports work only when
+# the module is part of a package, so fall back to absolute imports if needed.
+try:  # pragma: no cover - trivial import glue
+    from .document_store import DocumentStore
+    from .gemini_client import GeminiClient
+except ImportError:  # executed when running as ``python app/main.py``
+    from document_store import DocumentStore
+    from gemini_client import GeminiClient
+
+app = FastAPI()
+
+
+@app.get("/", include_in_schema=False)
+async def root() -> RedirectResponse:
+    """Redirect the bare URL to the interactive API docs."""
+    return RedirectResponse("/docs")
+
+
+=======
 from .document_store import DocumentStore
 from .gemini_client import GeminiClient
 
 app = FastAPI()
+
 _store = DocumentStore()
 
 
