@@ -57,7 +57,7 @@ docker-compose up backend --build
 - **API Documentation:** http://localhost:8000/docs
 - **API Endpoints:** http://localhost:8000
 
-## 📚 Usage Examples
+## Usage Examples
 
 ### Web Interface
 1. **Upload Documents:** Drag & drop or click to upload files
@@ -139,7 +139,7 @@ python -m pytest
 curl http://localhost:8000/health
 ```
 
-## 📖 API Reference
+##  API Reference
 
 ### Core Endpoints
 - `POST /documents` - Upload document or image
@@ -180,20 +180,6 @@ docker-compose up backend
 docker-compose up -p 8080:8000 -p 3001:3000
 ```
 
-## 🤝 Contributing
-
-1. **Fork the repository**
-2. **Create feature branch:** `git checkout -b feature/amazing-feature`
-3. **Make changes** and test thoroughly
-4. **Commit changes:** `git commit -m 'Add amazing feature'`
-5. **Push to branch:** `git push origin feature/amazing-feature`
-6. **Open Pull Request**
-
-### Development Guidelines
-- Follow Python PEP 8 for backend code
-- Use ESLint/Prettier for frontend code  
-- Write tests for new features
-- Update documentation for API changes
 
 ##  License
 
