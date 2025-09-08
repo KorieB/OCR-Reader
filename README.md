@@ -1,31 +1,31 @@
-# Enhanced OCR Reader 🚀
+# Enhanced OCR Reader 
 
 A powerful full-stack application that combines document processing, image analysis, and AI-powered question answering. Upload PDFs, text files, and images, then ask questions or perform cross-document analysis using Google's Gemini AI.
 
-## ✨ Features
+## Features
 
-### 📄 **Multi-Format Document Support**
+###  **Multi-Format Document Support**
 - **PDF Documents** - Extract and analyze text content
 - **Text Files** - Process plain text documents  
 - **Images** - Analyze JPEG, PNG, GIF, WebP files using Gemini's vision capabilities
 
-### 🤖 **AI-Powered Analysis**
+### **AI-Powered Analysis**
 - **Single Document Q&A** - Ask questions about individual documents or images
 - **Cross-Document Checking** - Compare and analyze up to 5 documents simultaneously
 - **Smart Context Understanding** - Gemini AI provides contextual, detailed responses
 
-### 🎨 **Modern Web Interface**
+###  **Modern Web Interface**
 - **React Frontend** - Clean, responsive user interface
 - **Drag & Drop Upload** - Easy file uploading with visual feedback
 - **Real-time Processing** - Live updates and progress indicators
 - **Document Management** - View, select, and delete uploaded documents
 
-### 🐳 **Production Ready**
+### **Production Ready**
 - **Docker Support** - Full containerization for easy deployment
 - **RESTful API** - Well-documented endpoints with OpenAPI/Swagger
 - **Health Monitoring** - Built-in health checks and error handling
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Docker & Docker Compose
@@ -50,8 +50,6 @@ docker-compose up --build
 # Backend only
 docker-compose up backend --build
 
-# Development mode with hot reload
-docker-compose --profile dev up --build
 ```
 
 ### 3. Access the Application
@@ -87,7 +85,7 @@ curl -X POST "http://localhost:8000/documents/cross-check" \
   }'
 ```
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
@@ -110,7 +108,7 @@ curl -X POST "http://localhost:8000/documents/cross-check" \
 - **Axios** - HTTP client for API communication
 - **Lucide React** - Beautiful icons
 
-## 🛠️ Development
+## Development
 
 ### Backend Development
 ```bash
@@ -156,7 +154,7 @@ curl http://localhost:8000/health
 
 See [API_DOCUMENTATION.md](./API_DOCUMENTATION.md) for complete API reference.
 
-## 🔧 Configuration
+##  Configuration
 
 ### Environment Variables
 ```bash
@@ -197,26 +195,14 @@ docker-compose up -p 8080:8000 -p 3001:3000
 - Write tests for new features
 - Update documentation for API changes
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙋 Support & Contact
+## Support & Contact
 
 - **Issues:** [GitHub Issues](https://github.com/KorieB/OCR-Reader/issues)
 - **Discussions:** [GitHub Discussions](https://github.com/KorieB/OCR-Reader/discussions)
 - **Documentation:** [API Docs](./API_DOCUMENTATION.md)
 
-## 🎯 Roadmap
 
-- [ ] **Persistent Storage** - PostgreSQL/MongoDB integration
-- [ ] **User Authentication** - Multi-user support
-- [ ] **File Storage** - Cloud storage integration (AWS S3/GCS)
-- [ ] **Advanced OCR** - Tesseract integration for better text extraction
-- [ ] **Export Features** - PDF/Word report generation
-- [ ] **Webhooks** - Real-time notifications
-- [ ] **API Rate Limiting** - Production-grade request limiting
-
----
-
-**Made with ❤️ using FastAPI, React, and Google Gemini AI**
